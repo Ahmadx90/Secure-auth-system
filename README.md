@@ -115,22 +115,18 @@ Visit 👉 http://localhost:3000
 📸 Screenshots
 
 SnapShots
+### 🔹 Login Page
+![Login Page](https://github.com/user-attachments/assets/7199c511-ead1-4a27-bcd0-cf4af8b97a0b)
 
--🔹Login Page
+### 🔹 Signup Page
+![Signup Page](https://github.com/user-attachments/assets/5fe34025-bc95-41b3-b97f-30eb74f7a660)
 
-<img width="1828" height="829" alt="image" src="https://github.com/user-attachments/assets/7199c511-ead1-4a27-bcd0-cf4af8b97a0b" />
+### 🔹 2FA Setup (QR Code)
+![2FA Setup](https://github.com/user-attachments/assets/a872580d-9d3c-4346-903f-a4fe05289340)
 
--🔹Signup Page
+### 🔹 Dashboard
+![Dashboard](https://github.com/user-attachments/assets/eb9cc0e0-0a54-4d63-9744-4fc502b52863)
 
-<img width="1889" height="1062" alt="image" src="https://github.com/user-attachments/assets/5fe34025-bc95-41b3-b97f-30eb74f7a660" />
-
--🔹2FA Setup (QR Code)
-
-<img width="1905" height="1060" alt="image" src="https://github.com/user-attachments/assets/a872580d-9d3c-4346-903f-a4fe05289340" />
-
--🔹Dashboard
-
-<img width="1832" height="825" alt="image" src="https://github.com/user-attachments/assets/eb9cc0e0-0a54-4d63-9744-4fc502b52863" />
 
 📌 Future Improvements
 
