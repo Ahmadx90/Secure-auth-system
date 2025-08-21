@@ -115,17 +115,26 @@ Visit 👉 http://localhost:3000
 📸 Screenshots
 
 SnapShots
-### 🔹 Login Page
+## 📸 Screenshots
+
+### 🔹 Login Page  
 ![Login Page](https://github.com/user-attachments/assets/7199c511-ead1-4a27-bcd0-cf4af8b97a0b)
 
-### 🔹 Signup Page
+---
+
+### 🔹 Signup Page  
 ![Signup Page](https://github.com/user-attachments/assets/5fe34025-bc95-41b3-b97f-30eb74f7a660)
 
-### 🔹 2FA Setup (QR Code)
+---
+
+### 🔹 2FA Setup (QR Code)  
 ![2FA Setup](https://github.com/user-attachments/assets/a872580d-9d3c-4346-903f-a4fe05289340)
 
-### 🔹 Dashboard
+---
+
+### 🔹 Dashboard  
 ![Dashboard](https://github.com/user-attachments/assets/eb9cc0e0-0a54-4d63-9744-4fc502b52863)
+
 
 
 📌 Future Improvements
