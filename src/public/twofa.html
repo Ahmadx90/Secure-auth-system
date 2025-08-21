@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>2FA | Internee.pk</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <!-- Logo centered at the top of the card for consistency, with neon glow -->
+        <span class="logo">🔐</span>
+        <!-- Main heading as specified -->
+        <h1>Verify Yourself</h1>
+        <!-- Message/subheading as specified -->
+        <p class="message">Scan QR to authenticate Yourself</p>
+        <!-- QR display area, generated on load -->
+        <div id="qrArea" class="qr-container">
+          <img id="qr" class="qr" alt="QR Code" />
+        </div>
+        <!-- Form for code input and Verify button -->
+        <form id="verifyForm">
+          <input
+            id="code"
+            class="input"
+            inputmode="numeric"
+            maxlength="6"
+            placeholder="Enter 6-Digit Code"
+            required
+          />
+          <button type="submit" class="btn">Verify</button>
+        </form>
+        <!-- Authenticate with Google button as specified (links to OAuth) -->
+        <a
+          class="btn"
+          href="/auth/google"
+          style="display: block; margin-top: 20px"
+          >Authenticate with Google</a
+        >
+        <!-- Go Back button as specified -->
+        <a
+          class="btn"
+          href="/dashboard.html"
+          style="display: block; margin-top: 20px"
+          >Go Back</a
+        >
+        <div id="msg" class="small"></div>
+        <div id="codes" class="hidden"></div>
+      </div>
+    </div>
+    <script src="js/twofa.js"></script>
+  </body>
+</html>

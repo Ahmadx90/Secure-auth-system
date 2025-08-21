@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login | Internee.pk</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <!-- Logo centered at the top of the card for consistency, with neon glow -->
+        <span class="logo">⚡</span>
+        <!-- Main heading as specified -->
+        <h1>Login</h1>
+        <!-- Added subheading for guidance and modern feel -->
+        <p class="subheading">Welcome Back! 🥂</p>
+        <form id="loginForm">
+          <!-- Email input field with neon styling -->
+          <input
+            class="input"
+            type="email"
+            id="email"
+            placeholder="Email"
+            required
+          />
+          <!-- Password input field with neon styling -->
+          <input
+            class="input"
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+        </form>
+        <!-- Links for Sign up and Forget password, spaced as in typical image layouts -->
+        <div class="links">
+          <a class="link" href="signup.html">Sign up</a>
+          <a class="link" href="#">Forget password</a>
+        </div>
+        <!-- Button row: Google on left, Submit on right, for balanced design -->
+        <div class="button-row">
+          <a class="btn left" href="/auth/google">Google</a>
+          <button class="btn right" type="submit" form="loginForm">
+            Log In
+          </button>
+        </div>
+        <p id="msg" class="notice"></p>
+      </div>
+    </div>
+    <script src="js/login.js"></script>
+  </body>
+</html>

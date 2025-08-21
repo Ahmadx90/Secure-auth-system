@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Enable 2FA For your Account 🔐</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Enable Two-Factor Auth</h1>
+        <div class="row">
+          <button id="gen" type="button">Generate QR</button>
+          <a class="btn secondary" href="/dashboard.html">Back</a>
+        </div>
+        <div id="qrArea" class="hidden">
+          <img id="qr" class="qr" alt="QR Code" />
+          <div class="small">Manual key: <span id="manual"></span></div>
+          <form id="verifyForm">
+            <label>Enter 6-digit code</label>
+            <input id="code" inputmode="numeric" maxlength="6" required />
+            <button type="submit">Verify & Enable</button>
+          </form>
+        </div>
+        <div id="msg" class="small"></div>
+        <div id="codes" class="hidden"></div>
+      </div>
+    </div>
+
+    <script>
+      // Helper functions for showing/hiding elements and displaying messages.
+      const el = (id) => document.getElementById(id);
+      const show = (id) => el(id).classList.remove("hidden");
+      const hide = (id) => el(id).classList.add("hidden");
+      const msg = (t, ok = false) => {
+        const m = el("msg");
+        m.textContent = t;
+        m.className = "small " + (ok ? "success" : "error");
+      };
+
+      // Generate QR code for 2FA setup.
+      el("gen").addEventListener("click", async () => {
+        try {
+          const r = await fetch("/twofa/setup?method=app", {
+            method: "GET",
+            credentials: "include",
+          });
+          const data = await r.json();
+          if (!r.ok) {
+            msg(data.error || "Failed to generate secret");
+            return;
+          }
+          el("qr").src = data.qr;
+          el("manual").textContent = data.secret;
+          show("qrArea");
+        } catch (e) {
+          msg("Network error");
+        }
+      });
+
+      // Verify the entered code and enable 2FA.
+      // Display recovery codes on success.
+      el("verifyForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const code = el("code").value.trim();
+        if (!code || code.length !== 6) {
+          msg("Enter a valid 6-digit code");
+          return;
+        }
+        try {
+          const r = await fetch("/twofa/verify", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+            body: JSON.stringify({ method: "app", token: code }),
+          });
+          const data = await r.json();
+          if (!r.ok) {
+            msg(data.error || "Invalid code");
+            return;
+          }
+          msg("2FA enabled!", true);
+          const c = data.recoveryCodes || [];
+          if (c.length) {
+            const box = el("codes");
+            box.innerHTML = `<h2>Recovery Codes</h2><p class="small">Store safely. One-time use.</p><pre>${c.join(
+              "\n"
+            )}</pre>`;
+            show("codes");
+          }
+        } catch (e) {
+          msg("Network error");
+        }
+      });
+    </script>
+  </body>
+</html>

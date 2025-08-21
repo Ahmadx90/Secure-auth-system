@@ -1,0 +1,193 @@
+/* Root variables updated for neon theme: dark bg, glowing accents inspired by common neon designs */
+:root {
+  --neon: #03e9f4; /* Primary neon color for glows and borders */
+  --bg: #050801f5; /* Dark background for neon contrast */
+  --card: #05080100; /* Card blends with bg for seamless look */
+  --text: #fff; /* Light text for readability */
+  --error: #e74c3c; /* Error color, kept subtle */
+  --success: #2ecc71; /* Success color, kept subtle */
+}
+
+/* Global resets */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Segoe UI, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Container for centering */
+.container {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Card with neon border and glow */
+.card {
+  background: var(--card);
+  border: 1px solid var(--neon);
+  border-radius: 10px;
+  box-shadow: 0 0 20px var(--neon);
+  padding: 32px;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Logo with neon glow */
+.logo {
+  font-size: 3em;
+  color: var(--neon);
+  text-shadow: 0 0 10px var(--neon), 0 0 20px var(--neon);
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Headings with neon text shadow */
+h1,
+h2 {
+  margin: 0 0 16px;
+  font-weight: 700;
+  color: var(--neon);
+  text-shadow: 0 0 3px var(--neon);
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+
+/* Subheading and message styles */
+.subheading,
+.message {
+  margin: 10px 0;
+  color: var(--text);
+  font-size: 1em;
+}
+
+/* Input fields with underline neon effect */
+.input {
+  width: 100%;
+  padding: 12px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--text);
+  color: var(--text);
+  margin: 20px 0 10px;
+  transition: border-bottom 0.3s;
+}
+.input:focus {
+  border-bottom: 2px solid var(--neon);
+  outline: none;
+}
+
+/* Buttons with neon border and hover glow */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--neon);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--neon);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+  text-shadow: 0 0 5px var(--neon);
+}
+.btn:hover {
+  background: var(--neon);
+  color: var(--bg);
+  box-shadow: 0 0 10px var(--neon);
+}
+
+/* Button row for left-right alignment */
+.button-row {
+  display: flex;
+  gap: 100px;
+  margin-top: 20px;
+}
+.left,
+.right {
+  width: 50%;
+}
+
+/* Links with neon hover */
+.link {
+  color: var(--neon);
+  text-decoration: underline;
+  transition: text-shadow 0.3s;
+}
+.link:hover {
+  text-shadow: 0 0 5px var(--neon);
+}
+
+/* Links container for spacing */
+.links {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+/* Checkbox styling */
+.checkbox {
+  margin: 10px 0;
+  color: var(--text);
+}
+.checkbox input {
+  margin-right: 5px;
+}
+
+/* QR code with neon border */
+.qr {
+  display: block;
+  margin: 12px auto;
+  max-width: 220px;
+  border: 2px solid var(--neon);
+  box-shadow: 0 0 10px var(--neon);
+}
+
+/* QR container */
+.qr-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Notice and message classes */
+.notice {
+  margin: 10px 0;
+  color: var(--text);
+}
+.error {
+  color: var(--error);
+}
+.success {
+  color: var(--success);
+}
+.small {
+  font-size: 0.85em;
+  margin-top: 8px;
+}
+
+/* Hidden class */
+.hidden {
+  display: none;
+}
+
+/* Password validation styles */
+.valid {
+  border-bottom-color: var(--success) !important;
+}
+.invalid {
+  border-bottom-color: var(--error) !important;
+}
+.rule-met {
+  color: var(--success);
+}
+.rule-not-met {
+  color: var(--error);
+}

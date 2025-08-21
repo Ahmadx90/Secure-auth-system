@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Signup | Internee.pk</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <!-- Logo centered at the top of the card for consistency, with neon glow -->
+        <span class="logo">⚡</span>
+        <!-- Main heading as specified -->
+        <h1>Create Account</h1>
+        <!-- Added subheading for guidance and modern feel -->
+        <p class="subheading">Join Internee.PK & Enhance Yourself</p>
+        <form id="signupForm">
+          <!-- First name input -->
+          <input
+            class="input"
+            type="text"
+            id="first_name"
+            placeholder="First name"
+            required
+          />
+          <!-- Last name input -->
+          <input
+            class="input"
+            type="text"
+            id="last_name"
+            placeholder="Last name"
+            required
+          />
+          <!-- Email input (added as essential, based on project needs) -->
+          <input
+            class="input"
+            type="email"
+            id="email"
+            placeholder="Email"
+            required
+          />
+          <!-- Password input -->
+          <input
+            class="input"
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <!-- Password rules div, shown on focus -->
+          <div
+            id="passwordRules"
+            class="small notice"
+            style="display: none; margin-top: 5px"
+          >
+            <ul style="list-style: none; padding: 0">
+              <li id="rule-length">At least 8 characters ❌</li>
+              <li id="rule-upper">1 uppercase letter ❌</li>
+              <li id="rule-lower">1 lowercase letter ❌</li>
+              <li id="rule-number">1 number ❌</li>
+              <li id="rule-special">1 special character ❌</li>
+            </ul>
+          </div>
+          <!-- Confirm password input -->
+          <input
+            class="input"
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+            required
+          />
+          <p
+            id="confirmMsg"
+            class="small error"
+            style="display: none; margin-top: 5px"
+          >
+            Passwords do not match
+          </p>
+          <!-- Phone number input -->
+          <input
+            class="input"
+            type="text"
+            id="phone"
+            placeholder="Phone Number"
+          />
+          <!-- Added checkbox for agreement as specified -->
+          <div class="checkbox">
+            <input type="checkbox" id="agree" required />
+            <label for="agree">I agree to the terms and conditions</label>
+          </div>
+          <!-- Submit button as specified -->
+          <button class="btn" type="submit">Create account</button>
+        </form>
+        <!-- Go Back button as specified -->
+        <a
+          class="btn"
+          href="index.html"
+          style="display: block; margin-top: 20px"
+          >Go Back</a
+        >
+        <p id="msg" class="notice"></p>
+      </div>
+    </div>
+    <script src="js/signup.js"></script>
+  </body>
+</html>

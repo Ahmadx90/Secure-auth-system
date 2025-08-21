@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard | Internee.pk</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <!-- Logo centered at the top of the card for consistency, with neon glow -->
+        <span class="logo">⚡</span>
+        <!-- Dynamic heading with username -->
+        <h1 id="greet">Hi, ...</h1>
+        <!-- Subheading/message as specified -->
+        <p class="subheading">Welcome! to Internee.Pk</p>
+        <!-- Conditional section for 2FA warning (shown if not enabled) -->
+        <div id="twofa-section" class="hidden">
+          <p class="message">Enable 2FA! Your account is not secure</p>
+          <button id="enable2fa" class="btn">Enable 2FA</button>
+        </div>
+        <!-- Logout button as specified -->
+        <button
+          class="btn"
+          id="logout"
+          style="display: block; margin-top: 20px"
+        >
+          Log out
+        </button>
+      </div>
+    </div>
+    <script>
+      // Fetch user data and populate dashboard
+      async function fetchMe() {
+        try {
+          const r = await fetch("/auth/me");
+          if (!r.ok) {
+            location.href = "index.html";
+            return;
+          }
+          const { user } = await r.json();
+          const fullName =
+            user.first_name + (user.last_name ? " " + user.last_name : "");
+          document.getElementById("greet").textContent = `Hi! ${fullName}`;
+          // Conditional display for 2FA warning (for both new and existing users if not enabled)
+          const twofaSection = document.getElementById("twofa-section");
+          if (!user.is_2fa_enabled) {
+            twofaSection.classList.remove("hidden");
+          }
+        } catch (err) {
+          console.error("Fetch me error:", err);
+          location.href = "index.html";
+        }
+      }
+      fetchMe();
+
+      // Enable 2FA button handler (redirects to 2FA page)
+      document.getElementById("enable2fa").onclick = () => {
+        window.location.href = "/twofa.html";
+      };
+
+      // Logout handler
+      document.getElementById("logout").onclick = async () => {
+        await fetch("/auth/logout", { method: "POST" });
+        location.href = "index.html";
+      };
+    </script>
+  </body>
+</html>
